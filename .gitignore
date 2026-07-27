@@ -1,0 +1,44 @@
+# .gitignore для vless-reality-guide
+# НИКАКИХ приватных данных в репозитории!
+
+# Приватные ключи и сертификаты
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+*.pub
+
+# Файлы с реальными конфигами (только примеры в configs/)
+config-real.json
+config-production.json
+*.env
+.env*
+
+# Логи
+*.log
+logs/
+
+# OS файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# Временные файлы
+*.tmp
+*.bak
+temp/
+tmp/
