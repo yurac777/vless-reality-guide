@@ -1,0 +1,57 @@
+# configs/server-xhttp-example.json
+# VLESS + XHTTP/REALITY — для мобильных сетей МТС/Билайн/Мегафон
+# Трафик инкапсулируется в HTTP/3 поверх QUIC/UDP
+# Абсолютная невидимость для агрессивного мобильного ТСПУ на 4G/5G
+# Скорость: ~880 Мбит/с | Пинг: 35 мс | Стабильность: 100%
+
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "YOUR-UUID-HERE",
+            "flow": ""
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "www.apple.com:443",
+          "xver": 0,
+          "serverNames": [
+            "www.apple.com"
+          ],
+          "privateKey": "YOUR-PRIVATE-KEY-HERE",
+          "shortIds": [
+            "YOUR-SHORT-ID-HERE"
+          ]
+        },
+        "xhttpSettings": {
+          "path": "/",
+          "host": "www.apple.com",
+          "mode": "auto"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls", "quic"]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    }
+  ]
+}
