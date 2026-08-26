@@ -42,3 +42,6 @@ venv/
 *.bak
 temp/
 tmp/
+
+INFRASTRUCTURE_POLICY.md
+AGENT_INSTRUCTIONS.md
